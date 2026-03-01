@@ -59,7 +59,7 @@ function App() {
             </Link>
           </div>
         </nav>
-        <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-12 text-center lg:px-8 lg:pt-20">
+        <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-10 text-center lg:px-8 lg:pt-14">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#c9a962]">{t.tagline}</p>
           <h1 className="mx-auto mt-3 max-w-4xl text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
             {t.title}
@@ -71,24 +71,24 @@ function App() {
       </header>
 
       {/* Problem Section - The Gap */}
-      <section className="border-t border-stone-100 bg-stone-50/50 py-20">
+      <section className="border-t border-stone-100 bg-stone-50/50 py-12">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-800 sm:text-3xl">
             {t.problemTitle}
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-stone-600 leading-relaxed">
+          <p className="mx-auto mt-4 max-w-2xl text-center text-stone-600 leading-relaxed">
             {t.problemText}
           </p>
         </div>
       </section>
 
       {/* Process Flow Section */}
-      <section className="border-t border-stone-100 bg-white py-24">
+      <section className="border-t border-stone-100 bg-white py-14">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl lg:text-4xl">
             {t.processTitle}
           </h2>
-          <div className="mt-16 space-y-8">
+          <div className="mt-10 space-y-6">
             <div className="flex flex-col items-start gap-6 rounded-2xl border border-stone-100 bg-stone-50/30 p-8 transition hover:border-[#c9a962]/30 hover:shadow-md md:flex-row md:items-center">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#c9a962]/15">
                 <svg className="h-8 w-8 text-[#c9a962]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -160,12 +160,12 @@ function App() {
       </section>
 
       {/* Before vs After Section */}
-      <section className="border-t border-stone-100 bg-stone-50/50 py-24">
+      <section className="border-t border-stone-100 bg-stone-50/50 py-14">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             {t.beforeAfterTitle}
           </h2>
-          <div className="mt-16 grid gap-8 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border-2 border-red-100 bg-white p-8 shadow-sm">
               <div className="mb-4 flex items-center gap-2">
                 <span className="rounded-full bg-red-100 px-3 py-1 text-sm font-medium text-red-700">{t.before}</span>
@@ -217,12 +217,12 @@ function App() {
       </section>
 
       {/* Solution Section */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             {t.solutionTitle}
           </h2>
-          <div className="mt-16 grid gap-12 md:grid-cols-3">
+          <div className="mt-10 grid gap-8 md:grid-cols-3">
             <div className="rounded-2xl border border-stone-100 bg-white p-8 shadow-sm transition hover:shadow-md">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#c9a962]/10">
                 <svg className="h-6 w-6 text-[#c9a962]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,12 +255,12 @@ function App() {
       </section>
 
       {/* Demonstration Section */}
-      <section className="border-t border-stone-100 bg-stone-50/50 py-24">
+      <section className="border-t border-stone-100 bg-stone-50/50 py-14">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             {t.demoTitle}
           </h2>
-          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
             <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg">
               <div className="border-b border-stone-100 bg-stone-50 px-6 py-3">
                 <span className="text-sm font-medium text-stone-600">{t.demoWhatsapp}</span>
@@ -309,12 +309,12 @@ function App() {
       </section>
 
       {/* Technical Upsells */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             {t.integrationTitle}
           </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:grid-cols-3">
             <div className="flex items-start gap-4 rounded-xl border border-stone-100 bg-white p-6">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#c9a962]/10">
                 <svg className="h-5 w-5 text-[#c9a962]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -353,7 +353,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-stone-100 py-8">
+      <footer className="border-t border-stone-100 py-6">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex items-center gap-6 sm:order-2">
