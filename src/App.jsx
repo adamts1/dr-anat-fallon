@@ -6,7 +6,8 @@ function App() {
       {/* Hero Section */}
       <header className="relative overflow-hidden bg-gradient-to-b from-stone-50 to-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-50/40 via-transparent to-transparent" />
-        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-8">
+        <span className="absolute top-6 right-6 text-sm font-medium text-stone-400" dir="rtl">בס״ד</span>
+        <nav className="relative mx-auto flex max-w-6xl items-center justify-end px-6 py-6 lg:px-8">
           <div className="flex items-center gap-6">
             <a href="https://tsityat.com/" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold tracking-tight text-stone-800 transition hover:text-[#c9a962]">
               tsityat.com
@@ -271,23 +272,11 @@ function App() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section id="demo" className="border-t border-stone-100 bg-gradient-to-b from-white to-stone-50 py-24">
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
-          <h2 className="text-2xl font-semibold text-stone-900 sm:text-3xl lg:text-4xl">
-            ד&quot;ר פאלון, בואי נהפוך את הקליניקה לאוטומטית
-          </h2>
-          <p className="mt-4 text-stone-600">
-            פגישת הדגמה אישית, ללא התחייבות
-          </p>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="border-t border-stone-100 py-8">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 sm:order-2">
               <a href="https://tsityat.com/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-stone-600 transition hover:text-[#c9a962]">
                 tsityat.com
               </a>
