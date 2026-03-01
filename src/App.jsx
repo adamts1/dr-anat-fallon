@@ -1,6 +1,7 @@
 import './index.css'
 import whatsappImg from './assets/whatsapp.png'
 import scheduleImg from './assets/schedule.png'
+import crmImg from './assets/crm.png'
 
 function App() {
   return (
@@ -236,7 +237,7 @@ function App() {
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             הדגמה
           </h2>
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          <div className="mt-12 grid gap-8 lg:grid-cols-3">
             <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg">
               <div className="border-b border-stone-100 bg-stone-50 px-6 py-3">
                 <span className="text-sm font-medium text-stone-600">ממשק צ'אט בוואטסאפ</span>
@@ -248,6 +249,12 @@ function App() {
                 <span className="text-sm font-medium text-stone-600">לוח תורים חכם</span>
               </div>
               <img src={scheduleImg} alt="הדגמת לוח תורים" className="mx-auto w-[60%] object-cover" />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg lg:col-span-3">
+              <div className="border-b border-stone-100 bg-stone-50 px-6 py-3">
+                <span className="text-sm font-medium text-stone-600">דשבורד CRM</span>
+              </div>
+              <img src={crmImg} alt="הדגמת דשבורד CRM" className="w-full object-contain" />
             </div>
           </div>
         </div>
