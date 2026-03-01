@@ -1,4 +1,6 @@
 import './index.css'
+import whatsappImg from './assets/whatsapp.png'
+import scheduleImg from './assets/schedule.png'
 
 function App() {
   return (
@@ -223,6 +225,29 @@ function App() {
               <p className="mt-3 text-stone-600 leading-relaxed">
                 שליחת תזכורות ואישורי הגעה באופן אוטומטי בוואטסאפ.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Demonstration Section */}
+      <section className="border-t border-stone-100 bg-stone-50/50 py-24">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
+            הדגמה
+          </h2>
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg">
+              <div className="border-b border-stone-100 bg-stone-50 px-6 py-3">
+                <span className="text-sm font-medium text-stone-600">ממשק צ'אט בוואטסאפ</span>
+              </div>
+              <img src={whatsappImg} alt="הדגמת צ'אט AI בוואטסאפ" className="mx-auto w-[60%] object-cover" />
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg">
+              <div className="border-b border-stone-100 bg-stone-50 px-6 py-3">
+                <span className="text-sm font-medium text-stone-600">לוח תורים חכם</span>
+              </div>
+              <img src={scheduleImg} alt="הדגמת לוח תורים" className="mx-auto w-[60%] object-cover" />
             </div>
           </div>
         </div>
