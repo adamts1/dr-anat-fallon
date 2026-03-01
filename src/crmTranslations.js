@@ -1,0 +1,252 @@
+export const crmTranslations = {
+  en: {
+    searchPlaceholder: 'Search leads...',
+    addLead: 'Add new lead',
+    title: 'Dashboard · Aesthetic Clinic',
+    totalLeads: 'Total leads this month',
+    consultations: 'Consultations booked',
+    conversionRate: 'Conversion rate',
+    expectedRevenue: 'Expected revenue',
+    clientName: 'Client name',
+    phone: 'Phone',
+    status: 'Status',
+    treatmentType: 'Treatment type',
+    source: 'Source',
+    contactDate: 'Contact date',
+    lastNote: 'Last note',
+    statusNew: 'New',
+    statusConsultation: 'Consultation booked',
+    statusPayment: 'Awaiting payment',
+    statusActive: 'Active treatment',
+    statusIrrelevant: 'Not relevant',
+    treatmentBotox: 'Injections (Botox/Acid)',
+    treatmentHydra: 'Hydra-Glow facial',
+    treatmentLaser: 'Laser hair removal',
+    treatmentPigmentation: 'Pigmentation',
+    treatmentMesotherapy: 'Mesotherapy',
+    sourceInstagram: 'Instagram',
+    sourceRecommendation: 'Recommendation',
+    sourceFacebook: 'Facebook',
+    sourceWebsite: 'Website',
+    sourceTiktok: 'TikTok',
+  },
+  fr: {
+    searchPlaceholder: 'Rechercher des prospects...',
+    addLead: 'Ajouter un prospect',
+    title: 'Tableau de bord · Clinique esthétique',
+    totalLeads: 'Total prospects ce mois',
+    consultations: 'Consultations réservées',
+    conversionRate: 'Taux de conversion',
+    expectedRevenue: 'Revenus prévus',
+    clientName: 'Nom du client',
+    phone: 'Téléphone',
+    status: 'Statut',
+    treatmentType: 'Type de traitement',
+    source: 'Source',
+    contactDate: 'Date de contact',
+    lastNote: 'Dernière note',
+    statusNew: 'Nouveau',
+    statusConsultation: 'Consultation réservée',
+    statusPayment: 'En attente de paiement',
+    statusActive: 'Traitement actif',
+    statusIrrelevant: 'Non pertinent',
+    treatmentBotox: 'Injections (Botox/Acide)',
+    treatmentHydra: 'Soin visage Hydra-Glow',
+    treatmentLaser: 'Épilation laser',
+    treatmentPigmentation: 'Pigmentation',
+    treatmentMesotherapy: 'Mésothérapie',
+    sourceInstagram: 'Instagram',
+    sourceRecommendation: 'Recommandation',
+    sourceFacebook: 'Facebook',
+    sourceWebsite: 'Site web',
+    sourceTiktok: 'TikTok',
+  },
+  he: {
+    searchPlaceholder: 'חיפוש לידים...',
+    addLead: 'הוספת ליד חדש',
+    title: 'לוח בקרה · קליניקה אסתטית',
+    totalLeads: 'סה"כ לידים החודש',
+    consultations: 'ייעוצים שהוזמנו',
+    conversionRate: 'שיעור המרה',
+    expectedRevenue: 'הכנסה צפויה',
+    clientName: 'שם הלקוח',
+    phone: 'טלפון',
+    status: 'סטטוס',
+    treatmentType: 'סוג טיפול',
+    source: 'מקור',
+    contactDate: 'תאריך יצירת קשר',
+    lastNote: 'הערה אחרונה',
+    statusNew: 'חדש',
+    statusConsultation: 'ייעוץ הוזמן',
+    statusPayment: 'ממתין לתשלום',
+    statusActive: 'טיפול פעיל',
+    statusIrrelevant: 'לא רלוונטי',
+    treatmentBotox: 'זריקות (בוטוקס/חומצה)',
+    treatmentHydra: 'טיפול פנים הידרה-גלו',
+    treatmentLaser: 'הסרת שיער בלייזר',
+    treatmentPigmentation: 'פיגמנטציה',
+    treatmentMesotherapy: 'מזותרפיה',
+    sourceInstagram: 'אינסטגרם',
+    sourceRecommendation: 'המלצה',
+    sourceFacebook: 'פייסבוק',
+    sourceWebsite: 'אתר',
+    sourceTiktok: 'טיקטוק',
+  },
+}
+
+// Lead data with keys (language-agnostic structure)
+const STATUS_KEYS = ['new', 'consultation', 'payment', 'active', 'irrelevant']
+const TREATMENT_KEYS = ['botox', 'hydra', 'laser', 'pigmentation', 'mesotherapy']
+const SOURCE_KEYS = ['instagram', 'recommendation', 'facebook', 'website', 'tiktok']
+
+// English names
+const NAMES_EN = [
+  'Sarah Cohen', 'David Levy', 'Emma Abraham', 'Sophie Mizrahi', 'Rachel Barak',
+  'Michelle Golan', 'Yael Sasson', 'Tamar David', 'Lior Ben David', 'Sarah Levy',
+  'Mor Katz', 'Uri Greenberg', 'Naomi Feldman', 'Karen Rosen', 'Amit Harel',
+  'Michelle Alon', 'Danny Shitrit', 'Michelle Goldstein', 'Noam Peretz', 'Yael Barnea',
+]
+
+// Hebrew names (same as English - Israeli names work for both)
+const NAMES_HE = [
+  'שרה כהן', 'דוד לוי', 'אמה אברהם', 'סופי מזרחי', 'רחל ברק',
+  'מישל גולן', 'יעל ששון', 'תמר דוד', 'ליאור בן דוד', 'שרה לוי',
+  'מור כץ', 'אורי גרינברג', 'נעמי פלדמן', 'קרן רוזן', 'עמית הראל',
+  'מישל אלון', 'דני שטרית', 'מישל גולדשטיין', 'נועם פרץ', 'יעל ברנע',
+]
+
+// French names
+const NAMES_FR = [
+  'Marie Dubois', 'Pierre Martin', 'Sophie Bernard', 'Claire Lefebvre', 'Julie Moreau',
+  'Camille Laurent', 'Léa Petit', 'Emma Roux', 'Julie Girard', 'Chloé Simon',
+  'Manon Michel', 'Thomas Bernard', 'Marie Fournier', 'Laura Bonnet', 'Alexandre Leroy',
+  'Julie Moreau', 'Nicolas Roux', 'Marie Lambert', 'Paul Dupont', 'Emma Faure',
+]
+
+const LEADS_STRUCTURE = [
+  { statusKey: 'new', treatmentKey: 'botox', sourceKey: 'instagram', date: '28/02/25', noteKey: 'note1' },
+  { statusKey: 'consultation', treatmentKey: 'hydra', sourceKey: 'recommendation', date: '27/02/25', noteKey: 'note2' },
+  { statusKey: 'payment', treatmentKey: 'laser', sourceKey: 'facebook', date: '26/02/25', noteKey: 'note3' },
+  { statusKey: 'active', treatmentKey: 'pigmentation', sourceKey: 'website', date: '25/02/25', noteKey: 'note4' },
+  { statusKey: 'new', treatmentKey: 'mesotherapy', sourceKey: 'tiktok', date: '28/02/25', noteKey: 'note5' },
+  { statusKey: 'consultation', treatmentKey: 'botox', sourceKey: 'recommendation', date: '27/02/25', noteKey: 'note6' },
+  { statusKey: 'irrelevant', treatmentKey: 'hydra', sourceKey: 'instagram', date: '20/02/25', noteKey: 'note7' },
+  { statusKey: 'new', treatmentKey: 'laser', sourceKey: 'facebook', date: '28/02/25', noteKey: 'note8' },
+  { statusKey: 'payment', treatmentKey: 'pigmentation', sourceKey: 'website', date: '26/02/25', noteKey: 'note9' },
+  { statusKey: 'active', treatmentKey: 'mesotherapy', sourceKey: 'recommendation', date: '24/02/25', noteKey: 'note10' },
+  { statusKey: 'new', treatmentKey: 'botox', sourceKey: 'instagram', date: '27/02/25', noteKey: 'note11' },
+  { statusKey: 'consultation', treatmentKey: 'laser', sourceKey: 'tiktok', date: '27/02/25', noteKey: 'note12' },
+  { statusKey: 'active', treatmentKey: 'hydra', sourceKey: 'facebook', date: '22/02/25', noteKey: 'note13' },
+  { statusKey: 'payment', treatmentKey: 'botox', sourceKey: 'website', date: '26/02/25', noteKey: 'note14' },
+  { statusKey: 'new', treatmentKey: 'pigmentation', sourceKey: 'recommendation', date: '28/02/25', noteKey: 'note15' },
+  { statusKey: 'irrelevant', treatmentKey: 'mesotherapy', sourceKey: 'facebook', date: '18/02/25', noteKey: 'note16' },
+  { statusKey: 'consultation', treatmentKey: 'laser', sourceKey: 'instagram', date: '27/02/25', noteKey: 'note17' },
+  { statusKey: 'active', treatmentKey: 'botox', sourceKey: 'recommendation', date: '15/02/25', noteKey: 'note18' },
+  { statusKey: 'new', treatmentKey: 'hydra', sourceKey: 'tiktok', date: '28/02/25', noteKey: 'note19' },
+  { statusKey: 'payment', treatmentKey: 'pigmentation', sourceKey: 'website', date: '25/02/25', noteKey: 'note20' },
+]
+
+const NOTE_TRANSLATIONS = {
+  en: {
+    note1: 'Afraid of needles, wants detailed explanation',
+    note2: 'Requested evening appointment',
+    note3: 'Waiting for deposit payment confirmation',
+    note4: 'In the middle of treatment series',
+    note5: 'Asked about pricing',
+    note6: 'Asked to return on Sunday',
+    note7: 'Decided to postpone',
+    note8: 'Wants treatment series',
+    note9: 'Waiting for bank confirmation',
+    note10: 'Treatment 3 of 6',
+    note11: 'Interested in initial consultation',
+    note12: 'Questions about skin sensitivity',
+    note13: 'Recommending to friends',
+    note14: 'Asked for payment plan',
+    note15: 'Wants to understand the process',
+    note16: 'Did not respond to follow-up',
+    note17: 'First appointment on Thursday',
+    note18: 'Regular client',
+    note19: 'Asked about results',
+    note20: 'Waiting for confirmation',
+  },
+  fr: {
+    note1: 'Peur des aiguilles, veut des explications détaillées',
+    note2: 'A demandé un rendez-vous en soirée',
+    note3: 'En attente de confirmation du paiement de l\'acompte',
+    note4: 'Au milieu de la série de traitements',
+    note5: 'A demandé les tarifs',
+    note6: 'A demandé à revenir dimanche',
+    note7: 'A décidé de reporter',
+    note8: 'Veut une série de traitements',
+    note9: 'En attente de confirmation bancaire',
+    note10: 'Traitement 3 sur 6',
+    note11: 'Intéressée par une consultation initiale',
+    note12: 'Questions sur la sensibilité cutanée',
+    note13: 'Recommande à des amies',
+    note14: 'A demandé un paiement en plusieurs fois',
+    note15: 'Veut comprendre le processus',
+    note16: 'N\'a pas répondu au suivi',
+    note17: 'Premier rendez-vous jeudi',
+    note18: 'Cliente régulière',
+    note19: 'A demandé des infos sur les résultats',
+    note20: 'En attente de confirmation',
+  },
+  he: {
+    note1: 'מפחדת ממחטים, רוצה הסבר מפורט',
+    note2: 'ביקשה תור בערב',
+    note3: 'ממתין לאישור תשלום המקדמה',
+    note4: 'באמצע סדרת טיפולים',
+    note5: 'שאלה על מחירים',
+    note6: 'ביקשה לחזור ביום ראשון',
+    note7: 'החליטה לדחות',
+    note8: 'רוצה סדרת טיפולים',
+    note9: 'ממתין לאישור בנק',
+    note10: 'טיפול 3 מתוך 6',
+    note11: 'מתעניינת בייעוץ ראשוני',
+    note12: 'שאלות על רגישות עור',
+    note13: 'ממליצה לחברות',
+    note14: 'ביקשה תשלומים',
+    note15: 'רוצה להבין את התהליך',
+    note16: 'לא הגיבה למעקב',
+    note17: 'תור ראשון ביום חמישי',
+    note18: 'לקוחה קבועה',
+    note19: 'שאלה על תוצאות',
+    note20: 'ממתין לאישור',
+  },
+}
+
+const PHONE_NUMBERS = [
+  '050-1234567', '052-9876543', '054-5551234', '053-7778899', '050-3334455',
+  '052-1112233', '054-6667788', '053-9990011', '050-4445566', '052-2223344',
+  '054-8889900', '053-1112234', '050-5556677', '052-3334455', '054-7778899',
+  '053-9991122', '050-6667788', '052-4445566', '054-2223344', '053-8889900',
+]
+
+export function getLeadsForLang(lang) {
+  const names = lang === 'fr' ? NAMES_FR : lang === 'he' ? NAMES_HE : NAMES_EN
+  const t = crmTranslations[lang] || crmTranslations.en
+  const notes = NOTE_TRANSLATIONS[lang] || NOTE_TRANSLATIONS.en
+
+  return LEADS_STRUCTURE.map((lead, i) => ({
+    id: i + 1,
+    name: names[i],
+    phone: PHONE_NUMBERS[i],
+    statusKey: lead.statusKey,
+    status: t[`status${lead.statusKey.charAt(0).toUpperCase() + lead.statusKey.slice(1)}`],
+    treatment: t[`treatment${lead.treatmentKey.charAt(0).toUpperCase() + lead.treatmentKey.slice(1)}`],
+    source: t[`source${lead.sourceKey.charAt(0).toUpperCase() + lead.sourceKey.slice(1)}`],
+    date: lead.date,
+    note: notes[lead.noteKey],
+  }))
+}
+
+export function getStatusConfig(lang) {
+  const t = crmTranslations[lang] || crmTranslations.en
+  return {
+    [t.statusNew]: { bg: 'bg-blue-100', text: 'text-blue-800' },
+    [t.statusConsultation]: { bg: 'bg-purple-100', text: 'text-purple-800' },
+    [t.statusPayment]: { bg: 'bg-amber-100', text: 'text-amber-800' },
+    [t.statusActive]: { bg: 'bg-emerald-100', text: 'text-emerald-800' },
+    [t.statusIrrelevant]: { bg: 'bg-stone-200', text: 'text-stone-600' },
+  }
+}

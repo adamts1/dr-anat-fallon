@@ -59,6 +59,7 @@ export const translations = {
     // Language
     langEn: 'EN',
     langFr: 'FR',
+    langHe: 'עב',
   },
   fr: {
     // Nav & Hero
@@ -120,5 +121,68 @@ export const translations = {
     // Language
     langEn: 'EN',
     langFr: 'FR',
+    langHe: 'עב',
+  },
+  he: {
+    // Nav & Hero
+    tagline: 'TSITYAT · AI Boutique Agency',
+    title: 'מנהל קליניקה דיגיטלי מבוסס AI',
+    subtitle: 'מערכת AI מתקדמת המותאמת לקליניקה שלך. תגובה מיידית ל-VIP, תזמון חכם, וסנכרון יומן מלא 24/7.',
+    // Problem section
+    problemTitle: 'הפער שכדאי לסגור',
+    problemText: 'קליניקה עמוסה לא תמיד יכולה להגיב מיד. לידים נשארים ללא מענה אחרי שעות העבודה, ושרשראות וואטסאפ אינסופיות לתזמון גוזלות זמן יקר שיכול היה להיות מוקדש לטיפול בחולים.',
+    // Process section
+    processTitle: 'מסע המטופל האוטומטי',
+    step1Title: 'קבלת לידים',
+    step1Text: 'ברגע שמטופל מגלה עניין באתר או בוואטסאפ, המערכת מזהה אותו באופן מיידי.',
+    step2Title: 'ניהול חכם (אינטגרציית CRM)',
+    step2Text: 'הפרטים נרשמים אוטומטית במערכת הניהול שלך. אף ליד לא הולך לאיבוד—הכל מתועד ומסודר.',
+    step3Title: 'צ\'אט מכירות AI',
+    step3Text: 'צ\'אט חכם שמדבר למטופל בקולך, עונה על כל השאלות הרלוונטיות לפי מידע העסק שלך, בטון ידידותי, מקצועי ואנושי—ומכוון אותו להזמנה.',
+    step4Title: 'הזמנה חכמה',
+    step4Text: 'המטופל בוחר זמן נוח מיומן המסונכרן מראש—בלי שיחת טלפון.',
+    step5Title: 'תשלום ואבטחה',
+    step5Text: 'הפניה אוטומטית לדף תשלום מאובטח עבור מקדמה—כל משבצת ביומן היא תור בתשלום.',
+    step6Title: 'מעקב אוטומטי',
+    step6Text: 'המערכת שולחת תזכורות וואטסאפ יום לפני, והודעת "איך היה?" יום אחרי התור.',
+    // Before/After
+    beforeAfterTitle: 'לפני ואחרי: כמה זמן אתה חוסך?',
+    before: 'לפני',
+    after: 'אחרי',
+    before1: 'שעות של חילופי וואטסאפ לתזמון',
+    before2: 'לידים שנעלמים בלי מענה אחרי שעות',
+    before3: 'ביטולים ברגע האחרון',
+    before4: 'זמן יקר על אדמין במקום טיפול',
+    after1: 'המטופל מזמין לבד—אפס שיחות טלפון',
+    after2: 'מענה 24/7—אף ליד לא נשאר מאחור',
+    after3: 'מקדמה משולמת—רק תורים רציניים',
+    after4: 'יותר זמן למה שבאמת חשוב',
+    // Solution section
+    solutionTitle: 'הפתרון: מנהל קליניקה דיגיטלי',
+    solution1Title: 'תגובה אנושית מבוססת AI',
+    solution1Text: 'הצ\'אט עונה על כל השאלות הרלוונטיות לפי מידע העסק שלך, בטון ידידותי, מקצועי ואנושי.',
+    solution2Title: 'תזמון אוטונומי',
+    solution2Text: 'סנכרון מלא עם היומן הקיים שלך. מטופלים מזמינים רק כשמשבצות באמת פנויות.',
+    solution3Title: 'שימור ומעקב',
+    solution3Text: 'תזכורות והודעות אימות אוטומטיות דרך וואטסאפ.',
+    // Demo section
+    demoTitle: 'הדגמה',
+    demoWhatsapp: 'ממשק צ\'אט וואטסאפ',
+    demoSchedule: 'לוח תזמון חכם',
+    demoCRM: 'לוח בקרה CRM',
+    // Integration section
+    integrationTitle: 'אינטגרציה מלאה עם המערכת שלך',
+    integration1Title: 'אינטגרציה מלאה',
+    integration1Text: 'עם CRM ויומן Google/Outlook',
+    integration2Title: 'עיבוד תשלומים',
+    integration2Text: 'מקדמות מובנות למניעת אי-הגעה',
+    integration3Title: 'לוח בקרה לניהול',
+    integration3Text: 'צפה בכל הלידים והתורים במקום אחד',
+    // Footer
+    footer: '© מנהל קליניקה דיגיטלי מבוסס AI',
+    // Language
+    langEn: 'EN',
+    langFr: 'FR',
+    langHe: 'עב',
   },
 }

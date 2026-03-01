@@ -14,6 +14,4 @@
   font-family: 'Heebo', system-ui, sans-serif;
 }
 
-body {
-  direction: ltr;
-}
+/* direction inherited from document.documentElement.dir (set by App for RTL Hebrew) */

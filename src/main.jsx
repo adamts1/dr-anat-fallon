@@ -9,10 +9,12 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/crm" element={<CRMDashboard />} />
+        <Route path="/crm" element={<Navigate to="/en/crm" replace />} />
+        <Route path="/:lang/crm" element={<CRMDashboard />} />
         <Route path="/" element={<Navigate to="/en" replace />} />
         <Route path="/en" element={<App />} />
         <Route path="/fr" element={<App />} />
+        <Route path="/he" element={<App />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

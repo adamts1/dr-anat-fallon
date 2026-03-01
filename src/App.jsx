@@ -2,27 +2,30 @@ import { useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import './index.css'
 import whatsappImg from './assets/whatsapp.png'
+import whatsappImgFr from './assets/whatsapp-fr.png'
 import scheduleImg from './assets/schedule.png'
+import scheduleImgFr from './assets/schedualer-fr.png'
 import crmImg from './assets/crm.png'
+import crmImgFr from './assets/crm-fr.png'
 import { translations } from './translations'
 
 function App() {
   const { pathname } = useLocation()
-  const lang = pathname === '/fr' ? 'fr' : 'en'
+  const lang = pathname === '/fr' ? 'fr' : pathname === '/he' ? 'he' : 'en'
   const t = translations[lang] || translations.en
-  const isLtr = true
+  const isLtr = lang !== 'he'
 
   useEffect(() => {
     document.documentElement.lang = lang
-    document.documentElement.dir = 'ltr'
-  }, [lang])
+    document.documentElement.dir = isLtr ? 'ltr' : 'rtl'
+  }, [lang, isLtr])
 
   return (
     <div className={`min-h-screen bg-white text-stone-800 ${isLtr ? '' : 'rtl'}`} dir={isLtr ? 'ltr' : 'rtl'}>
       {/* Hero Section */}
       <header className="relative overflow-hidden bg-gradient-to-b from-stone-50 to-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-50/40 via-transparent to-transparent" />
-        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-8">
+        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-8" dir="ltr">
           <div className="flex items-center gap-6">
             <a href="https://tsityat.com/" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold tracking-tight text-stone-800 transition hover:text-[#c9a962]">
               tsityat.com
@@ -47,6 +50,12 @@ function App() {
               className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${lang === 'fr' ? 'bg-[#c9a962] text-white' : 'text-stone-600 hover:bg-stone-100'}`}
             >
               {t.langFr}
+            </Link>
+            <Link
+              to="/he"
+              className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${lang === 'he' ? 'bg-[#c9a962] text-white' : 'text-stone-600 hover:bg-stone-100'}`}
+            >
+              {t.langHe}
             </Link>
           </div>
         </nav>
@@ -260,7 +269,7 @@ function App() {
                 <div className="relative flex h-[520px] w-[260px] shrink-0 items-center justify-center rounded-[2.25rem] border-[2px] border-stone-800 bg-stone-800 p-1.5 shadow-2xl">
                   <div className="absolute left-1/2 top-0 z-10 h-5 w-20 -translate-x-1/2 rounded-b-xl bg-stone-800" />
                   <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[1.25rem] bg-white">
-                    <img src={whatsappImg} alt={t.demoWhatsapp} className="h-full w-full scale-[1.02] object-contain" />
+                    <img src={lang === 'fr' ? whatsappImgFr : whatsappImg} alt={t.demoWhatsapp} className="h-full w-full scale-[1.02] object-contain" />
                   </div>
                 </div>
               </div>
@@ -273,7 +282,7 @@ function App() {
                 <div className="relative flex h-[520px] w-[260px] shrink-0 items-center justify-center rounded-[2.25rem] border-[2px] border-stone-800 bg-stone-800 p-1.5 shadow-2xl">
                   <div className="absolute left-1/2 top-0 z-10 h-5 w-20 -translate-x-1/2 rounded-b-xl bg-stone-800" />
                   <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[1.25rem] bg-white">
-                    <img src={scheduleImg} alt={t.demoSchedule} className="h-full w-full scale-[1.02] object-contain" />
+                    <img src={lang === 'fr' ? scheduleImgFr : scheduleImg} alt={t.demoSchedule} className="h-full w-full scale-[1.02] object-contain" />
                   </div>
                 </div>
               </div>
@@ -290,7 +299,7 @@ function App() {
                     <div className="h-2.5 w-2.5 rounded-full bg-green-500" />
                   </div>
                   <div className="overflow-hidden bg-white">
-                    <img src={crmImg} alt={t.demoCRM} className="w-full object-contain" />
+                    <img src={lang === 'fr' ? crmImgFr : crmImg} alt={t.demoCRM} className="w-full object-contain" />
                   </div>
                 </div>
               </div>
