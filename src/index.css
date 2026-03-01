@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Heebo', system-ui, sans-serif;
+  --color-gold: #c9a962;
+  --color-gold-light: #e5d4a1;
+  --color-gold-dark: #a68b4a;
+  --color-grey-soft: #f5f5f5;
+  --color-grey-mid: #9ca3af;
+  --color-grey-dark: #4b5563;
+}
+
+* {
+  font-family: 'Heebo', system-ui, sans-serif;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+}
