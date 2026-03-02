@@ -31,10 +31,10 @@ export const crmTranslations = {
     sourceTiktok: 'TikTok',
   },
   fr: {
-    searchPlaceholder: 'Rechercher des prospects...',
-    addLead: 'Ajouter un prospect',
+    searchPlaceholder: 'Rechercher des patients...',
+    addLead: 'Ajouter un patient',
     title: 'Tableau de bord · Clinique esthétique',
-    totalLeads: 'Total prospects ce mois',
+    totalLeads: 'Total patients ce mois',
     consultations: 'Consultations réservées',
     conversionRate: 'Taux de conversion',
     expectedRevenue: 'Revenus prévus',
