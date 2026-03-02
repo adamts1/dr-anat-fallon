@@ -182,11 +182,11 @@ export const translations = {
     demoSchedule: 'לוח תזמון חכם',
     demoCRM: 'לוח בקרה CRM',
     // Integration section
-    integrationTitle: 'אינטגרציה מלאה עם המערכת שלך',
+    integrationTitle: 'מעבר חלק ומהיר',
     integration1Title: 'אינטגרציה מלאה',
     integration1Text: 'פתרון שנבנה בהתאמה אישית לפי המערכות, סוג השאלות ותהליך המכירה הייחודי לקליניקה שלכם.',
     integration2Title: 'עיבוד תשלומים',
-    integration2Text: 'מקדמות מובנות למניעת אי-הגעה',
+    integration2Text: 'מקדמות מובנות למניעת אי הגעה',
     integration3Title: 'לוח בקרה לניהול',
     integration3Text: 'צפה בכל הלידים והתורים במקום אחד',
     // Footer
