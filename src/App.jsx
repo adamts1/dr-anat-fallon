@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { motion, useReducedMotion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import './index.css'
 import whatsappImg from './assets/whatsapp.png'
@@ -28,6 +29,7 @@ function App() {
   const langOrder = ['en', 'fr', 'he']
   const nextLang = langOrder[(langOrder.indexOf(lang) + 1) % 3]
 
+  const prefersReducedMotion = useReducedMotion()
   const [a11yOpen, setA11yOpen] = useState(false)
   const [highContrast, setHighContrast] = useState(false)
   const [formStatus, setFormStatus] = useState(null) // 'loading' | 'success' | 'error'
@@ -65,7 +67,13 @@ function App() {
   return (
     <div className={`min-h-screen bg-white text-stone-800 ${isLtr ? '' : 'rtl'}`} dir={isLtr ? 'ltr' : 'rtl'}>
       {/* Floating accessibility button - bottom left */}
-      <div className="a11y-widget fixed bottom-6 left-6 z-50" dir="ltr">
+      <motion.div
+        className="a11y-widget fixed bottom-6 left-6 z-50"
+        dir="ltr"
+        initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: prefersReducedMotion ? 0 : 0.4 }}
+      >
         <button
           type="button"
           onClick={() => setA11yOpen(!a11yOpen)}
@@ -101,10 +109,16 @@ function App() {
             </div>
           </>
         )}
-      </div>
+      </motion.div>
 
       {/* Floating language switcher - same position, stays on scroll */}
-      <div className="fixed right-6 top-6 z-50" dir="ltr">
+      <motion.div
+        className="fixed right-6 top-6 z-50"
+        dir="ltr"
+        initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: prefersReducedMotion ? 0 : 0.3 }}
+      >
         <button
           type="button"
           onClick={() => navigate(`/${nextLang}`)}
@@ -113,10 +127,16 @@ function App() {
         >
           {flags[lang]}
         </button>
-      </div>
+      </motion.div>
       {/* Hero Section - 100vh, minimalist */}
       <header className="relative flex min-h-screen flex-col items-center justify-center bg-white px-6 py-20" dir={isLtr ? 'ltr' : 'rtl'}>
-        <div className="absolute left-6 top-6 flex items-center gap-5" dir="ltr">
+        <motion.div
+          className="absolute left-6 top-6 flex items-center gap-5"
+          dir="ltr"
+        initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.2 }}
+        >
           <a href="https://tsityat.com/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-stone-600 transition hover:text-stone-900">
             tsityat.com
           </a>
@@ -126,26 +146,75 @@ function App() {
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </a>
-        </div>
-        <div className="mx-auto max-w-2xl -translate-y-12 space-y-6 text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.25em] text-stone-400">{t.tagline}</p>
-          <h1 className="text-3xl font-semibold leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
-            {t.title}
-          </h1>
-          <p className="text-base leading-relaxed text-stone-500 sm:text-lg">
-            {t.subtitle}
-          </p>
-          <a
-            href="#consultation"
-            className="mt-8 inline-block rounded-full bg-stone-900 px-8 py-4 text-sm font-semibold text-white transition hover:bg-stone-800"
+        </motion.div>
+        <motion.div
+          className="mx-auto max-w-2xl -translate-y-12 space-y-6 text-center"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: prefersReducedMotion ? 0 : 0.12, delayChildren: prefersReducedMotion ? 0 : 0.1 }
+            }
+          }}
+        >
+          <motion.p
+            className="text-xs font-medium uppercase tracking-[0.25em] text-stone-400"
+            variants={{
+              hidden: { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 16 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            {t.heroCTA}
-          </a>
-        </div>
+            {t.tagline}
+          </motion.p>
+          <motion.h1
+            className="text-3xl font-semibold leading-tight text-stone-900 sm:text-4xl lg:text-5xl"
+            variants={{
+              hidden: { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {t.title}
+          </motion.h1>
+          <motion.p
+            className="text-base leading-relaxed text-stone-500 sm:text-lg"
+            variants={{
+              hidden: { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 16 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {t.subtitle}
+          </motion.p>
+          <motion.div
+            variants={{
+              hidden: { opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 16 },
+              visible: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <a
+              href="#contact"
+              className="mt-8 inline-block rounded-full bg-stone-900 px-8 py-4 text-sm font-semibold text-white transition hover:bg-stone-800"
+            >
+              {t.heroCTA}
+            </a>
+          </motion.div>
+        </motion.div>
       </header>
 
       {/* Problem Section - The Gap */}
-      <section id="consultation" className="bg-white py-12" dir={isLtr ? undefined : 'rtl'}>
+      <motion.section
+        id="consultation"
+        className="bg-white py-12"
+        dir={isLtr ? undefined : 'rtl'}
+        initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           {t.problemTitle && (
             <h2 className="text-center text-2xl font-semibold text-stone-800 sm:text-3xl">
@@ -178,10 +247,17 @@ function App() {
             </p>
           )}
         </div>
-      </section>
+      </motion.section>
 
       {/* Process Flow Section */}
-      <section className="bg-stone-50/50 py-14" dir={isLtr ? undefined : 'rtl'}>
+      <motion.section
+        className="bg-stone-50/50 py-14"
+        dir={isLtr ? undefined : 'rtl'}
+        initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl lg:text-4xl">
             {t.processTitle}
@@ -255,10 +331,17 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Before vs After Section */}
-      <section className="bg-white py-14" dir={isLtr ? undefined : 'rtl'}>
+      <motion.section
+        className="bg-white py-14"
+        dir={isLtr ? undefined : 'rtl'}
+        initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             {t.beforeAfterTitle}
@@ -322,10 +405,17 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Demonstration Section */}
-      <section className="bg-white py-14" dir={isLtr ? undefined : 'rtl'}>
+      <motion.section
+        className="bg-white py-14"
+        dir={isLtr ? undefined : 'rtl'}
+        initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             {t.demoTitle}
@@ -376,10 +466,17 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Technical Upsells */}
-      <section className="bg-stone-50/50 py-14" dir={isLtr ? undefined : 'rtl'}>
+      <motion.section
+        className="bg-stone-50/50 py-14"
+        dir={isLtr ? undefined : 'rtl'}
+        initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             {t.integrationTitle}
@@ -420,10 +517,18 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Form */}
-      <section id="contact" className="border-t border-stone-200 bg-stone-50/50 py-14" dir={isLtr ? undefined : 'rtl'}>
+      <motion.section
+        id="contact"
+        className="border-t border-stone-200 bg-stone-50/50 py-14"
+        dir={isLtr ? undefined : 'rtl'}
+        initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="mx-auto max-w-xl px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
             {t.contactTitle}
@@ -505,7 +610,7 @@ function App() {
             </a>
           </form>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <footer className="border-t border-stone-200 bg-white py-8">
