@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import emailjs from '@emailjs/browser'
 import './index.css'
 import whatsappImg from './assets/whatsapp.png'
 import whatsappImgFr from './assets/whatsapp-fr.png'
@@ -9,6 +10,11 @@ import scheduleImgFr from './assets/schedualer-fr.png'
 import crmImg from './assets/crm.png'
 import crmImgFr from './assets/crm-fr.png'
 import { translations } from './translations'
+
+// EmailJS config – add your template ID and public key from https://dashboard.emailjs.com/
+const EMAILJS_SERVICE_ID = 'service_hj77wbm'
+const EMAILJS_TEMPLATE_ID = 'template_4xrje7n' // e.g. template_abc123
+const EMAILJS_PUBLIC_KEY = '8WUpHfYP9_IBLCf4M'  // e.g. abc123xyz
 
 function App() {
   const { pathname } = useLocation()
@@ -20,13 +26,92 @@ function App() {
   const langOrder = ['en', 'fr', 'he']
   const nextLang = langOrder[(langOrder.indexOf(lang) + 1) % 3]
 
+  const [a11yOpen, setA11yOpen] = useState(false)
+  const [highContrast, setHighContrast] = useState(false)
+  const [formStatus, setFormStatus] = useState(null) // 'loading' | 'success' | 'error'
+  const formRef = useRef(null)
+  const [largeFont, setLargeFont] = useState(false)
+  const [underlineLinks, setUnderlineLinks] = useState(false)
+  const [darkMode, setDarkMode] = useState(false)
+
   useEffect(() => {
     document.documentElement.lang = lang
     document.documentElement.dir = isLtr ? 'ltr' : 'rtl'
   }, [lang, isLtr])
 
+  const handleContactSubmit = (e) => {
+    e.preventDefault()
+    setFormStatus('loading')
+    emailjs
+      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      })
+      .then(() => {
+        setFormStatus('success')
+        formRef.current?.reset()
+      })
+      .catch(() => setFormStatus('error'))
+  }
+
+  useEffect(() => {
+    document.body.classList.toggle('a11y-high-contrast', highContrast)
+    document.body.classList.toggle('a11y-large-font', largeFont)
+    document.body.classList.toggle('a11y-underline-links', underlineLinks)
+    document.body.classList.toggle('a11y-dark-mode', darkMode)
+  }, [highContrast, largeFont, underlineLinks, darkMode])
+
   return (
     <div className={`min-h-screen bg-white text-stone-800 ${isLtr ? '' : 'rtl'}`} dir={isLtr ? 'ltr' : 'rtl'}>
+      {/* Floating accessibility button - bottom left */}
+      <div className="a11y-widget fixed bottom-6 left-6 z-50" dir="ltr">
+        <button
+          type="button"
+          onClick={() => setA11yOpen(!a11yOpen)}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-md transition hover:bg-emerald-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+          aria-label={t.a11yTitle}
+          aria-expanded={a11yOpen}
+        >
+          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+            <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z" />
+          </svg>
+        </button>
+        {a11yOpen && (
+          <>
+            <div className="fixed inset-0 z-40" aria-hidden onClick={() => setA11yOpen(false)} />
+            <div className="absolute bottom-14 left-0 z-50 min-w-[220px] rounded-xl border border-stone-200 bg-white p-4 shadow-xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-stone-500">{t.a11yTitle}</p>
+              <label className="flex cursor-pointer items-center gap-2 py-2 text-sm hover:bg-stone-50">
+                <input type="checkbox" checked={highContrast} onChange={(e) => setHighContrast(e.target.checked)} className="rounded" />
+                {t.a11yContrast}
+              </label>
+              <label className="flex cursor-pointer items-center gap-2 py-2 text-sm hover:bg-stone-50">
+                <input type="checkbox" checked={largeFont} onChange={(e) => setLargeFont(e.target.checked)} className="rounded" />
+                {t.a11yFont}
+              </label>
+              <label className="flex cursor-pointer items-center gap-2 py-2 text-sm hover:bg-stone-50">
+                <input type="checkbox" checked={underlineLinks} onChange={(e) => setUnderlineLinks(e.target.checked)} className="rounded" />
+                {t.a11yUnderline}
+              </label>
+              <label className="flex cursor-pointer items-center gap-2 py-2 text-sm hover:bg-stone-50">
+                <input type="checkbox" checked={darkMode} onChange={(e) => setDarkMode(e.target.checked)} className="rounded" />
+                {t.a11yDark}
+              </label>
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* Floating language switcher - same position, stays on scroll */}
+      <div className="fixed right-6 top-6 z-50" dir="ltr">
+        <button
+          type="button"
+          onClick={() => navigate(`/${nextLang}`)}
+          className="flex h-6 items-center justify-center px-2 text-[1.1rem] transition hover:opacity-70"
+          aria-label={`Switch to ${nextLang === 'en' ? 'English' : nextLang === 'fr' ? 'Français' : 'עברית'}`}
+        >
+          {flags[lang]}
+        </button>
+      </div>
       {/* Hero Section - 100vh, minimalist */}
       <header className="relative flex min-h-screen flex-col items-center justify-center bg-white px-6 py-20" dir={isLtr ? 'ltr' : 'rtl'}>
         <div className="absolute left-6 top-6 flex items-center gap-5" dir="ltr">
@@ -40,14 +125,6 @@ function App() {
             </svg>
           </a>
         </div>
-        <button
-          type="button"
-          onClick={() => navigate(`/${nextLang}`)}
-          className="absolute right-6 top-6 flex h-6 items-center justify-center px-2 text-[1.1rem] transition hover:opacity-70"
-          aria-label={`Switch to ${nextLang === 'en' ? 'English' : nextLang === 'fr' ? 'Français' : 'עברית'}`}
-        >
-          {flags[lang]}
-        </button>
         <div className="mx-auto max-w-2xl -translate-y-12 space-y-6 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-stone-400">{t.tagline}</p>
           <h1 className="text-3xl font-semibold leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
@@ -340,6 +417,80 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section id="contact" className="border-t border-stone-200 bg-stone-50/50 py-14" dir={isLtr ? undefined : 'rtl'}>
+        <div className="mx-auto max-w-xl px-6 lg:px-8">
+          <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
+            {t.contactTitle}
+          </h2>
+          <p className="mt-3 text-center text-stone-600">
+            {t.contactSubtitle}
+          </p>
+          <form
+            ref={formRef}
+            onSubmit={handleContactSubmit}
+            className="mt-8 space-y-5"
+          >
+            <div>
+              <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium text-stone-700">
+                {t.contactName}
+              </label>
+              <input
+                id="contact-name"
+                type="text"
+                name="from_name"
+                required
+                className="w-full rounded-lg border border-stone-200 bg-white px-4 py-3 text-stone-800 shadow-sm transition focus:border-[#c9a962] focus:outline-none focus:ring-2 focus:ring-[#c9a962]/20"
+                placeholder={t.contactName}
+              />
+            </div>
+            <div>
+              <label htmlFor="contact-email" className="mb-1.5 block text-sm font-medium text-stone-700">
+                {t.contactEmail}
+              </label>
+              <input
+                id="contact-email"
+                type="email"
+                name="from_email"
+                required
+                className="w-full rounded-lg border border-stone-200 bg-white px-4 py-3 text-stone-800 shadow-sm transition focus:border-[#c9a962] focus:outline-none focus:ring-2 focus:ring-[#c9a962]/20"
+                placeholder={t.contactEmail}
+              />
+            </div>
+            <div>
+              <label htmlFor="contact-message" className="mb-1.5 block text-sm font-medium text-stone-700">
+                {t.contactMessage}
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                required
+                rows={5}
+                className="w-full resize-y rounded-lg border border-stone-200 bg-white px-4 py-3 text-stone-800 shadow-sm transition focus:border-[#c9a962] focus:outline-none focus:ring-2 focus:ring-[#c9a962]/20"
+                placeholder={t.contactMessage}
+              />
+            </div>
+            {formStatus === 'success' && (
+              <p className="rounded-lg bg-emerald-50 p-4 text-sm font-medium text-emerald-700">
+                {t.contactSuccess}
+              </p>
+            )}
+            {formStatus === 'error' && (
+              <p className="rounded-lg bg-red-50 p-4 text-sm font-medium text-red-700">
+                {t.contactError}
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={formStatus === 'loading'}
+              className="w-full rounded-lg bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:opacity-70 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+            >
+              {formStatus === 'loading' ? '...' : t.contactSubmit}
+            </button>
+          </form>
         </div>
       </section>
 
