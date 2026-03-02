@@ -67,6 +67,7 @@ export const translations = {
     contactEmail: 'Email',
     contactMessage: 'Message',
     contactSubmit: 'Send message',
+    contactWhatsapp: 'Contact via WhatsApp',
     contactSuccess: 'Thank you! Your message has been sent. We\'ll be in touch soon.',
     contactError: 'Something went wrong. Please try again or contact us directly.',
     // Footer
@@ -144,6 +145,7 @@ export const translations = {
     contactEmail: 'E-mail',
     contactMessage: 'Message',
     contactSubmit: 'Envoyer',
+    contactWhatsapp: 'Contacter via WhatsApp',
     contactSuccess: 'Merci ! Votre message a bien été envoyé. Nous vous répondrons bientôt.',
     contactError: 'Une erreur s\'est produite. Veuillez réessayer ou nous contacter directement.',
     // Footer
@@ -232,6 +234,7 @@ export const translations = {
     contactEmail: 'אימייל',
     contactMessage: 'הודעה',
     contactSubmit: 'שליחה',
+    contactWhatsapp: 'צור קשר בוואטסאפ',
     contactSuccess: 'תודה! ההודעה נשלחה בהצלחה. נחזור אליכם בהקדם.',
     contactError: 'משהו השתבש. נסו שוב או צרו קשר ישירות.',
     // Footer
