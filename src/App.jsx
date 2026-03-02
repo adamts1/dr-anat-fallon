@@ -29,9 +29,9 @@ function App() {
           <Link to="/fr" className={`rounded px-3 py-1.5 text-sm font-medium transition ${lang === 'fr' ? 'bg-stone-900 text-white' : 'text-stone-500 hover:text-stone-800'}`}>{t.langFr}</Link>
           <Link to="/he" className={`rounded px-3 py-1.5 text-sm font-medium transition ${lang === 'he' ? 'bg-stone-900 text-white' : 'text-stone-500 hover:text-stone-800'}`}>{t.langHe}</Link>
         </nav>
-        <div className="mx-auto max-w-2xl space-y-6 text-center">
+        <div className="mx-auto max-w-2xl -translate-y-12 space-y-6 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-stone-400">{t.tagline}</p>
-          <h1 className="text-3xl font-light leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-semibold leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
             {t.title}
           </h1>
           <p className="text-base leading-relaxed text-stone-500 sm:text-lg">
