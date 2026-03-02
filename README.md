@@ -1,4 +1,4 @@
-# AI Clinical Manager – Landing Page
+# AI Clinical Manager · Landing Page
 
 Professional sales landing page for TSITYAT - AI Boutique Agency | Digital AI Clinic Manager for Dr. Anat Fallon.
 

@@ -4,19 +4,21 @@ import { useLocation } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import './index.css'
-import whatsappImg from './assets/whatsapp.png'
+import whatsappImg from './assets/whatsapp-heb.png'
+import whatsappImgEn from './assets/whatsapp-en.png'
 import whatsappImgFr from './assets/whatsapp-fr.png'
 import scheduleImg from './assets/schedule.png'
 import scheduleImgFr from './assets/schedualer-fr.png'
 import crmImg from './assets/crm.png'
+import crmImgEn from './assets/crm-en.png'
 import crmImgFr from './assets/crm-fr.png'
 import { translations } from './translations'
 
-// EmailJS config – add your template ID and public key from https://dashboard.emailjs.com/
+// EmailJS config · add your template ID and public key from https://dashboard.emailjs.com/
 const EMAILJS_SERVICE_ID = 'service_hj77wbm'
 const EMAILJS_TEMPLATE_ID = 'template_4xrje7n' // e.g. template_abc123
 const EMAILJS_PUBLIC_KEY = '8WUpHfYP9_IBLCf4M'  // e.g. abc123xyz
-// WhatsApp contact – use international format without + (e.g. 972501234567)
+// WhatsApp contact · use international format without + (e.g. 972501234567)
 const WHATSAPP_NUMBER = '+972533807804'
 
 function App() {
@@ -429,7 +431,7 @@ function App() {
                 <div className="relative flex h-[520px] w-[260px] shrink-0 items-center justify-center rounded-[2.25rem] border-[2px] border-stone-800 bg-stone-800 p-1.5 shadow-2xl">
                   <div className="absolute left-1/2 top-0 z-10 h-5 w-20 -translate-x-1/2 rounded-b-xl bg-stone-800" />
                   <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[1.25rem] bg-white">
-                    <img src={lang === 'fr' ? whatsappImgFr : whatsappImg} alt={t.demoWhatsapp} className="h-full w-full scale-[1.02] object-contain" />
+                    <img src={lang === 'fr' ? whatsappImgFr : lang === 'en' ? whatsappImgEn : whatsappImg} alt={t.demoWhatsapp} className="h-full w-full scale-[1.02] object-contain" />
                   </div>
                 </div>
               </div>
@@ -442,7 +444,7 @@ function App() {
                 <div className="relative flex h-[520px] w-[260px] shrink-0 items-center justify-center rounded-[2.25rem] border-[2px] border-stone-800 bg-stone-800 p-1.5 shadow-2xl">
                   <div className="absolute left-1/2 top-0 z-10 h-5 w-20 -translate-x-1/2 rounded-b-xl bg-stone-800" />
                   <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[1.25rem] bg-white">
-                    <img src={lang === 'fr' ? scheduleImgFr : scheduleImg} alt={t.demoSchedule} className="h-full w-full scale-[1.02] object-contain" />
+                    <img src={lang === 'fr' || lang === 'en' ? scheduleImgFr : scheduleImg} alt={t.demoSchedule} className="h-full w-full scale-[1.02] object-contain" />
                   </div>
                 </div>
               </div>
@@ -451,17 +453,8 @@ function App() {
               <div className="border-b border-stone-100 bg-stone-50 px-6 py-3">
                 <span className="text-sm font-medium text-stone-600">{t.demoCRM}</span>
               </div>
-              <div className="flex justify-center bg-stone-100 p-8">
-                <div className="w-full max-w-4xl overflow-hidden rounded-lg border-[2px] border-stone-300 bg-stone-800 shadow-2xl">
-                  <div className="flex items-center gap-2 border-b border-stone-600 bg-stone-800 px-4 py-2">
-                    <div className="h-2.5 w-2.5 rounded-full bg-red-500" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-amber-500" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-green-500" />
-                  </div>
-                  <div className="overflow-hidden bg-white">
-                    <img src={lang === 'fr' ? crmImgFr : crmImg} alt={t.demoCRM} className="w-full object-contain" />
-                  </div>
-                </div>
+              <div className="overflow-hidden">
+                <img src={lang === 'fr' ? crmImgFr : lang === 'en' ? crmImgEn : crmImg} alt={t.demoCRM} className="w-full object-cover" />
               </div>
             </div>
           </div>
