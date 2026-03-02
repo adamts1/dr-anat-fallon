@@ -22,56 +22,43 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-white text-stone-800 ${isLtr ? '' : 'rtl'}`} dir={isLtr ? 'ltr' : 'rtl'}>
-      {/* Hero Section */}
-      <header className="relative overflow-hidden bg-gradient-to-b from-stone-50 to-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-50/40 via-transparent to-transparent" />
-        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-8" dir="ltr">
-          <div className="flex items-center gap-6">
-            <a href="https://tsityat.com/" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold tracking-tight text-stone-800 transition hover:text-[#c9a962]">
-              tsityat.com
-            </a>
-            <span className="h-4 w-px bg-stone-300" aria-hidden="true" />
-            <a href="https://www.instagram.com/aiboutiqueagency/" target="_blank" rel="noopener noreferrer" className="text-stone-500 transition hover:text-[#c9a962]" aria-label="Instagram">
-              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
-          </div>
-          {/* Language Switcher */}
-          <div className="flex items-center gap-1 rounded-lg border border-stone-200 bg-white p-1 shadow-sm">
-            <Link
-              to="/en"
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${lang === 'en' ? 'bg-[#c9a962] text-white' : 'text-stone-600 hover:bg-stone-100'}`}
-            >
-              {t.langEn}
-            </Link>
-            <Link
-              to="/fr"
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${lang === 'fr' ? 'bg-[#c9a962] text-white' : 'text-stone-600 hover:bg-stone-100'}`}
-            >
-              {t.langFr}
-            </Link>
-            <Link
-              to="/he"
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${lang === 'he' ? 'bg-[#c9a962] text-white' : 'text-stone-600 hover:bg-stone-100'}`}
-            >
-              {t.langHe}
-            </Link>
-          </div>
+      {/* Hero Section - 100vh, minimalist */}
+      <header className="relative flex min-h-screen flex-col items-center justify-center bg-white px-6 py-20" dir={isLtr ? 'ltr' : 'rtl'}>
+        <nav className="absolute end-6 top-6 flex gap-2" dir="ltr">
+          <Link to="/en" className={`rounded px-3 py-1.5 text-sm font-medium transition ${lang === 'en' ? 'bg-stone-900 text-white' : 'text-stone-500 hover:text-stone-800'}`}>{t.langEn}</Link>
+          <Link to="/fr" className={`rounded px-3 py-1.5 text-sm font-medium transition ${lang === 'fr' ? 'bg-stone-900 text-white' : 'text-stone-500 hover:text-stone-800'}`}>{t.langFr}</Link>
+          <Link to="/he" className={`rounded px-3 py-1.5 text-sm font-medium transition ${lang === 'he' ? 'bg-stone-900 text-white' : 'text-stone-500 hover:text-stone-800'}`}>{t.langHe}</Link>
         </nav>
-        <div className="relative mx-auto max-w-6xl px-6 pb-8 pt-10 text-center lg:px-8 lg:pt-14">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#c9a962]">{t.tagline}</p>
-          <h1 className="mx-auto mt-3 max-w-4xl text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
+        <div className="mx-auto max-w-2xl space-y-6 text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-stone-400">{t.tagline}</p>
+          <h1 className="text-3xl font-light leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
             {t.title}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-600 sm:text-xl">
+          <p className="text-base leading-relaxed text-stone-500 sm:text-lg">
             {t.subtitle}
           </p>
+          <a
+            href="#consultation"
+            className="mt-8 inline-block rounded-full bg-stone-900 px-8 py-4 text-sm font-semibold text-white transition hover:bg-stone-800"
+          >
+            {t.heroCTA}
+          </a>
+        </div>
+        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-5" dir="ltr">
+          <a href="https://tsityat.com/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-stone-600 transition hover:text-stone-900">
+            tsityat.com
+          </a>
+          <span className="h-4 w-px bg-stone-300" aria-hidden="true" />
+          <a href="https://www.instagram.com/aiboutiqueagency/" target="_blank" rel="noopener noreferrer" className="text-stone-500 transition hover:text-stone-800" aria-label="Instagram">
+            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
         </div>
       </header>
 
       {/* Problem Section - The Gap */}
-      <section className="bg-white py-12" dir={isLtr ? undefined : 'rtl'}>
+      <section id="consultation" className="bg-white py-12" dir={isLtr ? undefined : 'rtl'}>
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           {t.problemTitle && (
             <h2 className="text-center text-2xl font-semibold text-stone-800 sm:text-3xl">

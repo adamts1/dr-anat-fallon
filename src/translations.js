@@ -4,6 +4,7 @@ export const translations = {
     tagline: 'TSITYAT · AI Boutique Agency',
     title: 'Digital AI Clinic Manager',
     subtitle: 'Advanced AI system tailored for your clinic. VIP instant response, smart appointment scheduling, and full 24/7 calendar sync.',
+    heroCTA: 'Schedule a consultation call',
     // Problem section
     problemText: 'A busy clinic can\'t always respond immediately. Leads go unanswered after hours, and endless WhatsApp threads for scheduling eat into precious time that could be spent on patient care.',
     // Process section
@@ -65,6 +66,7 @@ export const translations = {
     tagline: 'TSITYAT · AI Boutique Agency',
     title: 'Gestionnaire de Clinique IA Numérique',
     subtitle: 'Système IA avancé adapté à votre clinique. Réponse VIP instantanée, prise de rendez-vous intelligente et synchronisation complète du calendrier 24/7.',
+    heroCTA: 'Prendre rendez-vous pour une consultation',
     // Problem section
     problemText: 'Une clinique chargée ne peut pas toujours répondre immédiatement. Les patients restent sans réponse après les heures de travail, et les échanges WhatsApp interminables pour planifier les rendez-vous prennent un temps précieux qui pourrait être consacré aux soins.',
     // Process section
@@ -126,6 +128,7 @@ export const translations = {
     tagline: 'TSITYAT · AI Boutique Agency',
     title: 'מנהל קליניקה דיגיטלי מבוסס AI',
     subtitle: 'מערכת שמטפלת באופן מלא בלקוחות, מכירות, ניהול תורים, מעקב וסליקה. לכם רק נשאר לטפל במטופלים.',
+    heroCTA: 'לתיאום שיחת ייעוץ',
     // Problem section
     problemText: '',
     problemBullets: [

@@ -15,3 +15,6 @@
 }
 
 /* direction inherited from document.documentElement.dir (set by App for RTL Hebrew) */
+html {
+  scroll-behavior: smooth;
+}
