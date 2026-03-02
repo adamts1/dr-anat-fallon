@@ -126,7 +126,7 @@ export const translations = {
   he: {
     // Nav & Hero
     tagline: 'TSITYAT · AI Boutique Agency',
-    title: 'מנהל קליניקה דיגיטלי מבוסס AI',
+    title: 'TSITYAT · AI Boutique Agency',
     subtitle: 'מערכת שמטפלת באופן מלא בלקוחות, מכירות, ניהול תורים, מעקב וסליקה. לכם רק נשאר לטפל במטופלים.',
     heroCTA: 'לתיאום שיחת ייעוץ',
     // Problem section
@@ -157,13 +157,13 @@ export const translations = {
     step6Title: 'מעקב אוטומטי',
     step6Text: 'המערכת שולחת תזכורות וואטסאפ יום לפני, והודעת "איך היה?" יום אחרי התור.',
     // Before/After
-    beforeAfterTitle: 'לפני ואחרי: כמה זמן אתה חוסך?',
+    beforeAfterTitle: 'מאיבוד לידים וזמן, לצמיחה ורווחיות.',
     before: 'לפני',
     after: 'אחרי',
     before1: 'שעות של חילופי וואטסאפ לתזמון',
     before2: 'לידים שנעלמים בלי מענה אחרי שעות',
     before3: 'ביטולים ברגע האחרון',
-    before4: 'זמן יקר על אדמין במקום טיפול',
+    before4: 'זמן יקר על תפעול במקום טיפול',
     after1: 'המטופל מזמין לבד-אפס שיחות טלפון',
     after2: 'מענה 24/7-אף ליד לא נשאר מאחור',
     after3: 'מקדמה משולמת-רק תורים רציניים',
@@ -184,13 +184,13 @@ export const translations = {
     // Integration section
     integrationTitle: 'אינטגרציה מלאה עם המערכת שלך',
     integration1Title: 'אינטגרציה מלאה',
-    integration1Text: 'עם CRM ויומן Google/Outlook',
+    integration1Text: 'פתרון שנבנה בהתאמה אישית לפי המערכות, סוג השאלות ותהליך המכירה הייחודי לקליניקה שלכם.',
     integration2Title: 'עיבוד תשלומים',
     integration2Text: 'מקדמות מובנות למניעת אי-הגעה',
     integration3Title: 'לוח בקרה לניהול',
     integration3Text: 'צפה בכל הלידים והתורים במקום אחד',
     // Footer
-    footer: '© מנהל קליניקה דיגיטלי מבוסס AI',
+    footer: '© TSITYAT · AI Boutique Agency',
     // Language
     langEn: 'EN',
     langFr: 'FR',

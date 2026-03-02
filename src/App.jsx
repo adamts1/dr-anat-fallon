@@ -185,89 +185,61 @@ function App() {
             {t.beforeAfterTitle}
           </h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border-2 border-red-100 bg-white p-8 shadow-sm">
-              <div className="mb-4 flex items-center gap-2">
-                <span className="rounded-full bg-red-100 px-3 py-1 text-sm font-medium text-red-700">{t.before}</span>
+            <div className="rounded-2xl border-2 border-red-100 bg-red-50/30 p-8 shadow-md transition hover:shadow-lg hover:border-red-200">
+              <div className="mb-6 flex items-center gap-2">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100">
+                  <svg className="h-4 w-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </span>
+                <span className="text-base font-semibold text-red-700">{t.before}</span>
               </div>
-              <ul className="space-y-3 text-stone-600">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400" />
+              <ul className="space-y-4 text-stone-600" dir={isLtr ? undefined : 'rtl'}>
+                <li className="flex items-start gap-3 text-start">
+                  <span className="mt-0.5 shrink-0"><svg className="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></span>
                   {t.before1}
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400" />
+                <li className="flex items-start gap-3 text-start">
+                  <span className="mt-0.5 shrink-0"><svg className="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></span>
                   {t.before2}
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400" />
+                <li className="flex items-start gap-3 text-start">
+                  <span className="mt-0.5 shrink-0"><svg className="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></span>
                   {t.before3}
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400" />
+                <li className="flex items-start gap-3 text-start">
+                  <span className="mt-0.5 shrink-0"><svg className="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></span>
                   {t.before4}
                 </li>
               </ul>
             </div>
-            <div className="rounded-2xl border-2 border-[#c9a962]/40 bg-white p-8 shadow-sm">
-              <div className="mb-4 flex items-center gap-2">
-                <span className="rounded-full bg-[#c9a962]/20 px-3 py-1 text-sm font-medium text-[#a68b4a]">{t.after}</span>
+            <div className="rounded-2xl border-2 border-emerald-200 bg-emerald-50/40 p-8 shadow-md transition hover:shadow-lg hover:border-emerald-300">
+              <div className="mb-6 flex items-center gap-2">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100">
+                  <svg className="h-5 w-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <span className="text-base font-semibold text-emerald-700">{t.after}</span>
               </div>
-              <ul className="space-y-3 text-stone-600">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a962]" />
+              <ul className="space-y-4 text-stone-600" dir={isLtr ? undefined : 'rtl'}>
+                <li className="flex items-start gap-3 text-start">
+                  <span className="mt-0.5 shrink-0"><svg className="h-5 w-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></span>
                   {t.after1}
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a962]" />
+                <li className="flex items-start gap-3 text-start">
+                  <span className="mt-0.5 shrink-0"><svg className="h-5 w-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></span>
                   {t.after2}
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a962]" />
+                <li className="flex items-start gap-3 text-start">
+                  <span className="mt-0.5 shrink-0"><svg className="h-5 w-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></span>
                   {t.after3}
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c9a962]" />
+                <li className="flex items-start gap-3 text-start">
+                  <span className="mt-0.5 shrink-0"><svg className="h-5 w-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></span>
                   {t.after4}
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Solution Section */}
-      <section className="bg-stone-50/50 py-14" dir={isLtr ? undefined : 'rtl'}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold text-stone-900 sm:text-3xl">
-            {t.solutionTitle}
-          </h2>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div className="rounded-2xl border border-stone-100 bg-white p-8 shadow-sm transition hover:shadow-md">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#c9a962]/10">
-                <svg className="h-6 w-6 text-[#c9a962]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-stone-900">{t.solution1Title}</h3>
-              <p className="mt-3 text-stone-600 leading-relaxed">{t.solution1Text}</p>
-            </div>
-            <div className="rounded-2xl border border-stone-100 bg-white p-8 shadow-sm transition hover:shadow-md">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#c9a962]/10">
-                <svg className="h-6 w-6 text-[#c9a962]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-stone-900">{t.solution2Title}</h3>
-              <p className="mt-3 text-stone-600 leading-relaxed">{t.solution2Text}</p>
-            </div>
-            <div className="rounded-2xl border border-stone-100 bg-white p-8 shadow-sm transition hover:shadow-md">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#c9a962]/10">
-                <svg className="h-6 w-6 text-[#c9a962]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-stone-900">{t.solution3Title}</h3>
-              <p className="mt-3 text-stone-600 leading-relaxed">{t.solution3Text}</p>
             </div>
           </div>
         </div>
